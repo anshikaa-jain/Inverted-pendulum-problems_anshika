@@ -8,9 +8,9 @@ import numpy as np
 
 from custom_msgs.msg import TorqueInput, States
 
-Kp = 20.0
+Kp = 15.0
 Kd = 5.0
-Ki = 0.005
+Ki = 0.002
 dt = 1/500
 class single_inverted_pendulum_swing_up(Node):
     
@@ -58,9 +58,9 @@ class single_inverted_pendulum_swing_up(Node):
 
         if (msg.theta <= np.pi/2 and msg.theta >= -(np.pi/2)):
                 if msg.theta_dot > 0 :
-                    torque_input.torque_value = 3.5
+                    torque_input.torque_value = 3.0
                 else:
-                    torque_input.torque_value = -3.5
+                    torque_input.torque_value = -3.0
 
         self.publisher.publish(torque_input)
 
